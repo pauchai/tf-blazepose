@@ -12,7 +12,7 @@ from .losses import euclidean_distance_loss, focal_tversky, focal_loss, get_hube
 from ..metrics.pck import get_pck_metric
 from ..metrics.mae import get_mae_metric
 
-def train(config):
+def train(config, exp_path):
     """Train model
 
     Args:
@@ -84,8 +84,8 @@ def train(config):
         model.load_weights(train_config["pretrained_weights_path"])
 
     # Create experiment folder
-    exp_path = os.path.join("experiments/{}".format(config["experiment_name"]))
-    pathlib.Path(exp_path).mkdir(parents=True, exist_ok=True)
+    #exp_path = os.path.join("experiments/{}".format(config["experiment_name"]))
+    #pathlib.Path(exp_path).mkdir(parents=True, exist_ok=True)
 
     # Define the callbacks
     tb_log_path = os.path.join(exp_path, "tb_logs")
